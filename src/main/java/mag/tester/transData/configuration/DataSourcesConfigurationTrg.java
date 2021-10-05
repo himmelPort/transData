@@ -46,7 +46,7 @@ public class DataSourcesConfigurationTrg {
     JdbcRepository jdbcRepositoryTrg() {
         NamedParameterJdbcTemplate jdbc = jdbcTemplateTrg();
         return new JdbcRepository(jdbc);
-    };
+    }
 
     @Primary
     @Bean

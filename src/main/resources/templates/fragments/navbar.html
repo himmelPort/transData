@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<body>
+
+<div th:fragment="navbarSimple">
+    <nav class="nav justify-content-end">
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="btn btn-outline-secondary btn-sm me-1" role="button" aria-disabled="true"
+                   th:href="@{/transTables}"
+                   data-toggle="tooltip" title="схемы таблиц источника и приёмника">схема данных</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-secondary btn-sm me-1" role="button" aria-disabled="true"
+                   th:href="@{/transCard}"
+                   data-toggle="tooltip" title="карта преобразований">карта</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-secondary btn-sm me-4" role="button" aria-disabled="true"
+                   th:href="@{/transComplete}"
+                   data-toggle="tooltip" title="выполнить передачу данных">старт</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div th:fragment="navbarBtnTop">
+    <nav class="navbar fixed-top justify-content-end mt-0 py-0">
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="btn btn-outline-secondary btn-sm me-1" role="button" aria-disabled="true"
+                   th:href="@{/transTables}"
+                   data-toggle="tooltip" title="схемы таблиц источника и приёмника">схема данных</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-secondary btn-sm me-1" role="button" aria-disabled="true"
+                   th:href="@{/transCard}"
+                   data-toggle="tooltip" title="карта преобразований">карта</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-secondary btn-sm me-4" role="button" aria-disabled="true"
+                   th:href="@{/transCompleteCard}"
+                   data-toggle="tooltip" title="выполнить передачу данных по сохранённым настройкам">старт</a>
+            </li>
+        </ul>
+    </nav>
+    <br>
+</div>
+
+</body>
+</html>

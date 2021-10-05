@@ -41,7 +41,7 @@ public class DataSourcesConfigurationSrc {
     JdbcRepository jdbcRepositorySrc() {
         NamedParameterJdbcTemplate jdbc = jdbcTemplateSrc();
         return new JdbcRepository(jdbc);
-    };
+    }
 
     @Bean
     @Qualifier("transactionManagerSrc")

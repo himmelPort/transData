@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -51,7 +50,7 @@ public class BaseController {
     public String transCompleteActual(
             @ModelAttribute("depositSession") DepositSession depositSession,
             @RequestParam Map<String, String> allParams,
-            HttpServletRequest request, Model model) throws SQLException {
+            HttpServletRequest request, Model model) {
         String action = allParams.get("action");
         List<String> applyTableTransfer;
 

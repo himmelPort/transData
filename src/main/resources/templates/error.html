@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>error occurred</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!-- Bootstrap CSS -->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+</head>
+<body>
+<!--<header th:insert="~{fragments/navbar :: navbarBs}"></header>-->
+
+<div class="container container-fluid px-0 mb-4 border border-secondary rounded">
+    <div class="container">
+        <h2>don't panic</h2>
+        <div class="alert alert-secondary" role="alert">
+            <b>
+            [<span th:text="${status}">status</span>]
+            <span th:text="${error}">error</span>
+            </b>
+            <p th:text="${message}">message</p>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS + Popper JS -->
+<script defer th:src="@{/js/bootstrap.bundle.js}"></script>
+</body>
+</html>

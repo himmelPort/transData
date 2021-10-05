@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <title th:text="${pageTitle}"></title>
+  <meta charset="utf-8"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <!-- Bootstrap CSS -->
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+</head>
+
+<body>
+<header th:insert="~{fragments/navbar :: navbarBtnTop}"></header>
+<!-- th:object="${dsSource}"  -->
+<div class="container container-fluid px-0 mt-2 mb-4">
+    <div class="row">
+        <!--  page source tables  -->
+        <div class="align-content-end col align-self-top border border-secondary rounded me-1">
+        <form th:method="PATCH"
+              th:action="@{/transCompleteActual}"
+              th:object="${dsSource}" role="form">
+            <table class="table table-borderless table-sm">
+                <tbody>
+                <tr th:each="el, series : ${dsSource}" class="table-secondary ms-0">
+                    <td class="col-2">
+                        <a th:href="@{/questionitem/{id}(id=${series.index})}"
+                           th:text="${el.tableName}" class="nav-link">
+                        </a>
+                    </td>
+                    <td class="align-middle text-start col-1">
+                        <div class="custom-control custom-checkbox">
+                            <input class="custom-control-input"
+                                   th:name="${el.tableName}"
+                                   th:checked="${el.includedTrans}? 'true' : 'false'" type="checkbox"/>
+<!--                            <label class="custom-control-label" th:for="anstrue + ${ms.idAnswer}">верно</label>-->
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+              <div class="text-end me-1 pb-1">
+                  <button type="submit" name="action" value="EXEC"
+                          data-toggle="tooltip" title="выполнить передачу данных по текущим настройкам"
+                          class="btn btn-outline-secondary btn-sm mr-2">старт</button>
+              </div>
+        </form>
+        </div>
+
+        <!--  page target tables  -->
+        <div class="align-content-end col align-self-end border border-secondary rounded ms-1">
+            <form th:method="PATCH"
+                  th:action="@{/cardxml}"
+                  th:object="${dsTarget}" role="form">
+                <table class="table table-borderless table-sm">
+                    <tbody>
+                    <tr th:each="el, series : ${dsTarget}" class="table-secondary ms-0">
+                        <td class="col-2">
+                            <a th:href="@{/questionitem/{id}(id=${series.index})}"
+                               th:text="${el.tableName}" class="nav-link">
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="text-end me-1 pb-1">
+                    <button type="submit" name="action" th:value="WRITE"
+                            data-toggle="tooltip" title="сохранить карту в xml-файл"
+                            class="btn btn-outline-secondary btn-sm">сохранить</button>
+                    <button type="submit" name="action" value="read"
+                            data-toggle="tooltip" title="установить карту из xml-файла"
+                            class="btn btn-outline-secondary btn-sm mr-2">установить</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<!-- Bootstrap JS + Popper JS -->
+<script defer th:src="@{/js/bootstrap.bundle.js}"></script>
+</body>
+</html>

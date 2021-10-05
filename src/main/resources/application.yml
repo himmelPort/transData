@@ -1,0 +1,28 @@
+app:
+  datasourceh2:
+    jdbcUrl: jdbc:h2:~/database/tester
+    driverClassname: org.h2.Driver
+    username: sa
+    password: winstone
+
+  datasourcepg:
+    jdbcUrl: jdbc:postgresql://localhost:5432/tester
+    driverClassname: org.postgresql.Driver
+    username: magister
+    password: winstone
+
+server:
+  port: 8080
+  servlet.context-path: /transData
+  error:
+    include-message: always
+    whitelabel.enabled: false
+    path: /error
+
+spring:
+  main.banner-mode: off
+  thymeleaf:
+    cache: false
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
