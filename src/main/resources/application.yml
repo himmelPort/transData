@@ -2,14 +2,14 @@ app:
   datasourceh2:
     jdbcUrl: jdbc:h2:~/database/tester
     driverClassname: org.h2.Driver
-    username: sa
-    password: winstone
+    username: usr
+    password: pwd
 
   datasourcepg:
     jdbcUrl: jdbc:postgresql://localhost:5432/tester
     driverClassname: org.postgresql.Driver
-    username: magister
-    password: winstone
+    username: usr
+    password: pwd
 
 server:
   port: 8080
